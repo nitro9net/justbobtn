@@ -1,5 +1,5 @@
 {
-    "name": "nitro9net/oc-blogphotos-plugin",
+    "name": "nitro9net/oc-blogphotos",
     "type": "october-plugin",
     "description": "Adds image galleries to RainLab Blog posts in October CMS.",
     "require": {
