@@ -1,0 +1,6 @@
+plugin:
+    name: 'nitro9net.blogphotos::lang.plugin.name'
+    description: 'nitro9net.blogphotos::lang.plugin.description'
+    author: nitro9net
+    icon: icon-picture-o
+    homepage: ''
