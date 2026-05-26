@@ -4,7 +4,7 @@ Adds a Gallery tab to RainLab Blog posts and a frontend component for displaying
 
 ## Requirements
 
-- October CMS 4.2
+- October CMS 3, 4
 - RainLab Blog
 
 ## Installation
