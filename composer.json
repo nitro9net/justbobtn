@@ -1,0 +1,17 @@
+{
+    "name": "nitro9net/oc-blogphotos-plugin",
+    "type": "october-plugin",
+    "description": "Adds image galleries to RainLab Blog posts in October CMS.",
+    "require": {
+        "composer/installers": "~1.0 || ~2.0",
+        "rainlab/blog-plugin": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nitro9net\\BlogPhotos\\": ""
+        }
+    },
+    "extra": {
+        "installer-name": "blogphotos"
+    }
+}
