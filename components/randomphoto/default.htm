@@ -1,0 +1,34 @@
+{% if galleryRandom %}
+    {% set thumbWidth = __SELF__.property('thumbWidth') %}
+    {% set thumbHeight = __SELF__.property('thumbHeight') %}
+    {% set linkTo = __SELF__.property('linkTo') %}
+    {% set photoUrl = galleryRandom.path %}
+    {% set postUrl = galleryRandom.postUrl %}
+    {% set href = linkTo == 'post' ? postUrl : (linkTo == 'image' ? photoUrl : null) %}
+
+    <figure class="blog-random-photo" style="--blog-random-photo-ratio: {{ thumbWidth }} / {{ thumbHeight }};">
+        {% if href %}
+            <a href="{{ href }}" class="blog-random-photo__link">
+        {% else %}
+            <div class="blog-random-photo__link">
+        {% endif %}
+
+            <img
+                src="{{ galleryRandom.thumb }}"
+                alt="{{ galleryRandom.alt }}"
+                width="{{ thumbWidth }}"
+                height="{{ thumbHeight }}"
+                loading="lazy"
+                class="blog-random-photo__image">
+
+        {% if href %}
+            </a>
+        {% else %}
+            </div>
+        {% endif %}
+
+        {% if galleryRandom.caption %}
+            <figcaption class="blog-random-photo__caption">{{ galleryRandom.caption }}</figcaption>
+        {% endif %}
+    </figure>
+{% endif %}

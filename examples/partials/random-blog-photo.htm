@@ -1,0 +1,15 @@
+{% if galleryRandom %}
+    <figure class="blog-random-photo" style="--blog-random-photo-ratio: 3 / 2;">
+        <a href="{{ galleryRandom.postUrl ?: galleryRandom.path }}" class="blog-random-photo__link">
+            <img
+                src="{{ galleryRandom.thumb }}"
+                alt="{{ galleryRandom.alt }}"
+                loading="lazy"
+                class="blog-random-photo__image">
+        </a>
+
+        {% if galleryRandom.caption %}
+            <figcaption class="blog-random-photo__caption">{{ galleryRandom.caption }}</figcaption>
+        {% endif %}
+    </figure>
+{% endif %}

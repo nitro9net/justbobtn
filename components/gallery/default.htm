@@ -1,0 +1,49 @@
+{% if galleryImages|length %}
+    {% set thumbWidth = __SELF__.property('thumbWidth') %}
+    {% set thumbHeight = __SELF__.property('thumbHeight') %}
+
+    <div
+        class="blog-gallery"
+        data-blog-gallery
+        data-gallery-count="{{ galleryImages|length }}"
+        style="--blog-gallery-thumb-ratio: {{ thumbWidth }} / {{ thumbHeight }};">
+        {% for image in galleryImages %}
+            <figure class="blog-gallery__item">
+                <a
+                    href="{{ image.path }}"
+                    class="blog-gallery__link"
+                    data-gallery-item
+                    data-gallery-src="{{ image.path }}"
+                    data-gallery-caption="{{ image.description ?: image.title }}"
+                    aria-label="Open image {{ loop.index }} of {{ galleryImages|length }}">
+                    <img
+                        src="{{ image.getThumb(thumbWidth, thumbHeight, { mode: 'crop' }) }}"
+                        alt="{{ image.title ?: image.file_name }}"
+                        width="{{ thumbWidth }}"
+                        height="{{ thumbHeight }}"
+                        loading="lazy"
+                        class="blog-gallery__image">
+                </a>
+                {% if image.description %}
+                    <figcaption class="blog-gallery__caption">{{ image.description }}</figcaption>
+                {% elseif image.title %}
+                    <figcaption class="blog-gallery__caption">{{ image.title }}</figcaption>
+                {% endif %}
+            </figure>
+        {% endfor %}
+    </div>
+
+    <div class="blog-gallery-lightbox" data-gallery-lightbox role="dialog" aria-modal="true" aria-hidden="true" hidden>
+        <button type="button" class="blog-gallery-lightbox__close" data-gallery-close aria-label="Close gallery">&times;</button>
+        <button type="button" class="blog-gallery-lightbox__nav blog-gallery-lightbox__nav--prev" data-gallery-prev aria-label="Previous image">
+            <span aria-hidden="true">&lsaquo;</span>
+        </button>
+        <figure class="blog-gallery-lightbox__figure">
+            <img src="" alt="" class="blog-gallery-lightbox__image" data-gallery-lightbox-image>
+            <figcaption class="blog-gallery-lightbox__caption" data-gallery-lightbox-caption></figcaption>
+        </figure>
+        <button type="button" class="blog-gallery-lightbox__nav blog-gallery-lightbox__nav--next" data-gallery-next aria-label="Next image">
+            <span aria-hidden="true">&rsaquo;</span>
+        </button>
+    </div>
+{% endif %}
