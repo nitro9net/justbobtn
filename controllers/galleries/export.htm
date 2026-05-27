@@ -1,0 +1,20 @@
+<?= Form::open(['class' => 'layout']) ?>
+    <div class="layout-row">
+        <?= $this->exportRender() ?>
+    </div>
+
+    <div class="form-buttons">
+        <button
+            type="submit"
+            data-control="popup"
+            data-handler="onExportLoadForm"
+            data-keyboard="false"
+            class="btn btn-primary">
+            <?= e(trans('nitro9net.blogphotos::lang.import_export.export_records')) ?>
+        </button>
+
+        <a href="<?= Backend::url('nitro9net/blogphotos/galleries') ?>" class="btn btn-default">
+            <?= e(trans('backend::lang.form.cancel')) ?>
+        </a>
+    </div>
+<?= Form::close() ?>

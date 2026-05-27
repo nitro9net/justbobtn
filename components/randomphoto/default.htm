@@ -1,10 +1,7 @@
 {% if galleryRandom %}
     {% set thumbWidth = __SELF__.property('thumbWidth') %}
     {% set thumbHeight = __SELF__.property('thumbHeight') %}
-    {% set linkTo = __SELF__.property('linkTo') %}
-    {% set photoUrl = galleryRandom.path %}
-    {% set postUrl = galleryRandom.postUrl %}
-    {% set href = linkTo == 'post' ? postUrl : (linkTo == 'image' ? photoUrl : null) %}
+    {% set href = galleryRandom.url %}
 
     <figure class="blog-random-photo" style="--blog-random-photo-ratio: {{ thumbWidth }} / {{ thumbHeight }};">
         {% if href %}

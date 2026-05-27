@@ -1,0 +1,37 @@
+columns:
+    post_slug:
+        label: nitro9net.blogphotos::lang.import_export.columns.post_slug
+        comment: nitro9net.blogphotos::lang.import_export.columns.post_slug_comment
+
+    post_id:
+        label: nitro9net.blogphotos::lang.import_export.columns.post_id
+        comment: nitro9net.blogphotos::lang.import_export.columns.post_id_comment
+
+    disk_name:
+        label: nitro9net.blogphotos::lang.import_export.columns.disk_name
+        comment: nitro9net.blogphotos::lang.import_export.columns.disk_name_comment
+
+    file_path:
+        label: nitro9net.blogphotos::lang.import_export.columns.file_path
+        comment: nitro9net.blogphotos::lang.import_export.columns.file_path_comment
+
+    file_name:
+        label: nitro9net.blogphotos::lang.import_export.columns.file_name
+
+    title:
+        label: nitro9net.blogphotos::lang.import_export.columns.title
+
+    description:
+        label: nitro9net.blogphotos::lang.import_export.columns.description
+
+    sort_order:
+        label: nitro9net.blogphotos::lang.import_export.columns.sort_order
+
+    is_public:
+        label: nitro9net.blogphotos::lang.import_export.columns.is_public
+
+    file_size:
+        label: nitro9net.blogphotos::lang.import_export.columns.file_size
+
+    content_type:
+        label: nitro9net.blogphotos::lang.import_export.columns.content_type

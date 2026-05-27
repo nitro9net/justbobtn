@@ -40,6 +40,37 @@ return [
         'confirm_delete_gallery' => 'Delete all photos in this gallery?',
         'confirm_delete_selected' => 'Delete all photos in the selected galleries?'
     ],
+    'import_export' => [
+        'import' => 'Import CSV',
+        'export' => 'Export CSV',
+        'import_records' => 'Import records',
+        'export_records' => 'Export records',
+        'import_title' => 'Import BlogPhotos galleries',
+        'export_title' => 'Export BlogPhotos galleries',
+        'columns' => [
+            'post_id' => 'Post ID',
+            'post_id_comment' => 'Optional. Used when post_slug is not supplied.',
+            'post_slug' => 'Post slug',
+            'post_slug_comment' => 'Recommended. Matches the photo to a RainLab Blog post.',
+            'post_title' => 'Post title',
+            'photo_id' => 'Photo ID',
+            'disk_name' => 'Disk name',
+            'disk_name_comment' => 'Use this when importing files that already exist in October storage.',
+            'file_path' => 'File path',
+            'file_path_comment' => 'Absolute local path to an image file on the server.',
+            'file_name' => 'File name',
+            'file_size' => 'File size',
+            'content_type' => 'Content type',
+            'title' => 'Title',
+            'description' => 'Description',
+            'sort_order' => 'Sort order',
+            'is_public' => 'Public',
+            'path' => 'Path',
+            'field' => 'Field',
+            'attachment_type' => 'Attachment type',
+            'attachment_id' => 'Attachment ID'
+        ]
+    ],
     'fields' => [
         'gallery_images' => 'Gallery images',
         'gallery_images_comment' => 'Upload and reorder images for this blog post.'

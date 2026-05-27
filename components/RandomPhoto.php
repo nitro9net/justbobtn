@@ -83,7 +83,7 @@ class RandomPhoto extends ComponentBase
             return null;
         }
 
-        return $this->controller->pageUrl($this->property('postPage'), [
+        return $this->controller->pageUrl($this->getRandomSetting('random_post_page', 'postPage', 'blog/post'), [
             'slug' => $this->post->slug
         ]);
     }
@@ -120,18 +120,47 @@ class RandomPhoto extends ComponentBase
 
         $thumbWidth = (int) $this->property('thumbWidth');
         $thumbHeight = (int) $this->property('thumbHeight');
+        $linkTo = $this->getRandomSetting('random_link_to', 'linkTo', 'image');
         $postUrl = $this->postUrl();
 
         $random = new stdClass;
         $random->photo = $this->photo;
         $random->post = $this->post;
+        $random->linkTo = $linkTo;
         $random->path = $this->photo->path;
         $random->thumb = $this->photo->getThumb($thumbWidth, $thumbHeight, ['mode' => 'crop']);
         $random->postUrl = $postUrl;
+        $random->url = $this->resolveLinkUrl($linkTo, $postUrl);
         $random->caption = $this->photo->description ?: ($this->photo->title ?: ($this->post ? $this->post->title : null));
         $random->alt = $this->photo->title ?: $this->photo->file_name;
 
         return $random;
+    }
+
+    protected function resolveLinkUrl(?string $linkTo, ?string $postUrl): ?string
+    {
+        if ($linkTo === 'post') {
+            return $postUrl;
+        }
+
+        if ($linkTo === 'image') {
+            return $this->photo->path;
+        }
+
+        return null;
+    }
+
+    protected function getRandomSetting(string $settingKey, string $propertyName, $fallback)
+    {
+        $value = Settings::get($settingKey);
+
+        if ($value !== null && $value !== '') {
+            return $value;
+        }
+
+        $value = $this->property($propertyName);
+
+        return ($value !== null && $value !== '') ? $value : $fallback;
     }
 
     protected function publishedPostQuery()

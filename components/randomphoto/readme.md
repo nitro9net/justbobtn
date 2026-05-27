@@ -23,7 +23,7 @@ The component exposes `galleryRandom` to the page for custom markup.
 
 ```twig
 {% if galleryRandom %}
-    <a href="{{ galleryRandom.postUrl ?: galleryRandom.path }}">
+    <a href="{{ galleryRandom.url ?: galleryRandom.path }}">
         <img src="{{ galleryRandom.thumb }}" alt="{{ galleryRandom.alt }}">
     </a>
 {% endif %}

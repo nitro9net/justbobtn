@@ -17,4 +17,12 @@
         data-stripe-load-indicator>
         <?= e(trans('nitro9net.blogphotos::lang.galleries.delete_selected')) ?>
     </button>
+
+    <a href="<?= Backend::url('nitro9net/blogphotos/galleries/import') ?>" class="btn btn-default oc-icon-upload">
+        <?= e(trans('nitro9net.blogphotos::lang.import_export.import')) ?>
+    </a>
+
+    <a href="<?= Backend::url('nitro9net/blogphotos/galleries/export') ?>" class="btn btn-default oc-icon-download">
+        <?= e(trans('nitro9net.blogphotos::lang.import_export.export')) ?>
+    </a>
 </div>

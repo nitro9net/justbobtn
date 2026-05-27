@@ -4,7 +4,8 @@ Adds a Gallery tab to RainLab Blog posts and a frontend component for displaying
 
 ## Requirements
 
-- October CMS 3, 4
+- October CMS 4.2+
+- PHP 8.2+
 - RainLab Blog
 
 ## Installation
@@ -20,6 +21,28 @@ Then refresh October CMS plugins from the backend or run:
 ```bash
 php artisan october:migrate
 ```
+
+For October CMS v4 projects, remove legacy Flysystem v1 adapters from the root project if you see `Class "League\Flysystem\Adapter\AbstractAdapter" not found`. That error comes from an old storage adapter package, not from BlogPhotos. Check with:
+
+```bash
+composer show | grep -i flysystem
+composer why league/flysystem
+```
+
+If you install with Composer using a local path repository, make sure the path exists relative to the October project root before running `composer require`:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./plugins/nitro9net/blogphotos"
+        }
+    ]
+}
+```
+
+Composer will throw `The url supplied for the path repository does not exist` when that folder has not been copied into place or when Composer is run from a different directory.
 
 ## Usage
 
@@ -69,13 +92,28 @@ includeCss = true
 
 Set `linkTo` to `image`, `post`, or `none`. When linking to a post, set `postPage` to the CMS page used for blog post details.
 
-The component exposes `galleryRandom` to the page if you want to build your own markup. It includes `photo`, `post`, `path`, `thumb`, `postUrl`, `caption`, and `alt`.
+The component exposes `galleryRandom` to the page if you want to build your own markup. It includes `photo`, `post`, `linkTo`, `url`, `path`, `thumb`, `postUrl`, `caption`, and `alt`.
+
+`galleryRandom.url` follows the Random photo backend setting for `Link to`. Use `galleryRandom.linkTo` if you need to inspect the selected mode.
 
 ## Backend management
 
 BlogPhotos adds a backend navigation item at `BlogPhotos > Galleries`. From there you can view blog posts that have gallery photos, edit gallery images and captions, delete individual photos with the file upload widget, or clear entire galleries.
 
 Default component settings are available in October's backend Settings area under `BlogPhotos`.
+
+## CSV import and export
+
+Use `BlogPhotos > Galleries > Import CSV` to import photos from another gallery program. Each row should identify a blog post using `post_slug` or `post_id`, then provide one photo source:
+
+```csv
+post_slug,disk_name,file_name,title,description,sort_order,is_public
+my-blog-post,650f1d2a8a1f9001234567.jpg,my-photo.jpg,Photo title,Photo caption,1,1
+```
+
+Supported import columns include `post_slug`, `post_id`, `disk_name`, `file_path`, `file_name`, `title`, `description`, `sort_order`, `is_public`, `file_size`, and `content_type`.
+
+Use `Export CSV` to download the current BlogPhotos galleries, including post data, photo metadata, `disk_name`, path, `field`, and `attachment_type`.
 
 ### Custom partial
 

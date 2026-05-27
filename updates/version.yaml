@@ -4,3 +4,5 @@
     - Added randomBlogPhoto component for displaying one random gallery image from published blog posts.
 1.2.0:
     - Added backend settings and gallery management screens.
+1.4.0:
+    - Added backend CSV import and export for BlogPhotos galleries.

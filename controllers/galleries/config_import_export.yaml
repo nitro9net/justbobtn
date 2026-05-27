@@ -1,0 +1,12 @@
+import:
+    title: nitro9net.blogphotos::lang.import_export.import_title
+    modelClass: Nitro9net\BlogPhotos\Models\GalleryImport
+    list: $/nitro9net/blogphotos/models/galleryimport/columns.yaml
+    redirect: nitro9net/blogphotos/galleries
+
+export:
+    title: nitro9net.blogphotos::lang.import_export.export_title
+    modelClass: Nitro9net\BlogPhotos\Models\GalleryExport
+    list: $/nitro9net/blogphotos/models/galleryexport/columns.yaml
+    fileName: blogphotos-galleries.csv
+    redirect: nitro9net/blogphotos/galleries

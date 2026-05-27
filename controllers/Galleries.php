@@ -11,12 +11,15 @@ class Galleries extends Controller
 {
     public $implement = [
         \Backend\Behaviors\ListController::class,
-        \Backend\Behaviors\FormController::class
+        \Backend\Behaviors\FormController::class,
+        \Backend\Behaviors\ImportExportController::class
     ];
 
-    public $listConfig = 'config_list.yaml';
+    public $listConfig = '$/nitro9net/blogphotos/controllers/galleries/config_list.yaml';
 
-    public $formConfig = 'config_form.yaml';
+    public $formConfig = '$/nitro9net/blogphotos/controllers/galleries/config_form.yaml';
+
+    public $importExportConfig = '$/nitro9net/blogphotos/controllers/galleries/config_import_export.yaml';
 
     public $requiredPermissions = ['nitro9net.blogphotos.manage_galleries'];
 

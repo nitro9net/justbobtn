@@ -3,8 +3,10 @@
     "type": "october-plugin",
     "description": "Adds image galleries to RainLab Blog posts in October CMS.",
     "require": {
-        "composer/installers": "~1.0 || ~2.0",
-        "rainlab/blog-plugin": "*"
+        "php": ">=8.2",
+        "composer/installers": "^2.2",
+        "october/rain": "^4.2",
+        "rainlab/blog-plugin": "^3.0"
     },
     "autoload": {
         "psr-4": {

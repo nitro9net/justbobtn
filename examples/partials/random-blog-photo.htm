@@ -1,6 +1,6 @@
 {% if galleryRandom %}
     <figure class="blog-random-photo" style="--blog-random-photo-ratio: 3 / 2;">
-        <a href="{{ galleryRandom.postUrl ?: galleryRandom.path }}" class="blog-random-photo__link">
+        <a href="{{ galleryRandom.url ?: galleryRandom.path }}" class="blog-random-photo__link">
             <img
                 src="{{ galleryRandom.thumb }}"
                 alt="{{ galleryRandom.alt }}"
